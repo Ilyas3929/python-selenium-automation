@@ -12,10 +12,7 @@ CART_ICON = (By.XPATH, '//div[@data-test="@web/CartIcon"]')
 
 @when("Search for {product}")
 def search_product(context, product):
-    context.driver.wait.until(EC.element_to_be_clickable(SEARCH_FIELD))
-    context.driver.find_element(*SEARCH_FIELD).send_keys(product)
-    context.driver.wait.until(EC.element_to_be_clickable(SEARCH_BUTTON))
-    context.driver.find_element(*SEARCH_BUTTON).click()
+    context.app.header.search_product(product)
 
 
 @when("Adding product to the cart")
